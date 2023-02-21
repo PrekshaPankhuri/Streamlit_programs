@@ -37,19 +37,19 @@ output_unit = st.selectbox("Select the output unit:", list(length_units.keys()) 
 
 # Convert the input value to standard units
 if input_unit in length_units:
-    input_standard_value = input_value / length_units[input_unit]
+    input_standard_value = input_value * length_units[input_unit]
 elif input_unit in weight_units:
-    input_standard_value = input_value / weight_units[input_unit]
+    input_standard_value = input_value * weight_units[input_unit]
 else:
-    input_standard_value = input_value / volume_units[input_unit]
+    input_standard_value = input_value * volume_units[input_unit]
 
 # Convert the standard units to the output unit
 if output_unit in length_units:
-    output_standard_value = input_standard_value * length_units[output_unit]
+    output_standard_value = input_standard_value / length_units[output_unit]
 elif output_unit in weight_units:
-    output_standard_value = input_standard_value * weight_units[output_unit]
+    output_standard_value = input_standard_value / weight_units[output_unit]
 else:
-    output_standard_value = input_standard_value * volume_units[output_unit]
+    output_standard_value = input_standard_value / volume_units[output_unit]
 
 # Display the output
 st.write(f"{input_value} {input_unit} is equal to {output_standard_value:.2f} {output_unit}")
